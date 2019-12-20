@@ -14,7 +14,8 @@ Imports:
     DT,
     glue,
     htmltools,
-    shinydashboard
+    shinydashboard,
+    purrr
 RoxygenNote: 7.0.0
 Suggests: 
     testthat
