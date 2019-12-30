@@ -1,7 +1,7 @@
 # valueBoxRow
 
-#' @title   valueBoxRow 
-#' @description  creates a row of valueBox with a single value
+#' @title   valueBoxRow
+#' @description  creates a row of valueBoxes
 #'
 #' @param outputId list of outputId
 #'
@@ -9,15 +9,15 @@
 #'
 #' @keywords internal
 #' @importFrom shinydashboard valueBoxOutput
-#' @export 
-valueBoxRow <- function(outputId){
+#' @export
+valueBoxRow <- function(outputId) {
   valueBoxes <- purrr::map(outputId, valueBoxOutput)
   ui <- fluidRow(!!!valueBoxes)
 }
 
 
 # Module UI
-  
+
 #' @title   mod_valueBoxRow_ui and mod_valueBoxRow_server
 #' @description  A shiny Module.
 #'
@@ -25,60 +25,59 @@ valueBoxRow <- function(outputId){
 #' @param input internal
 #' @param output internal
 #' @param session internal
-#' @param outputL list of quoted outputIds
-#' @rdname mod_my_first_module
+#' @param outputL list of quoted outputIds (do not include `output`)
+#' @rdname mod_valueBoxRow
 #'
 #' @keywords internal
-#' @export 
+#' @export
 #' @import shiny shinydashboard
-mod_valueBoxRow_ui <- function(id, outputL){
+mod_valueBoxRow_ui <- function(id, outputL) {
   ns <- NS(id)
   tagList(
     valueBoxRow(ns(outputL))
   )
 }
 
-# list("rate", "count", "users")
-    
+
+
 # Module Server
-    
-#' @rdname mod_my_first_module
+
+#' @rdname mod_valueBoxRow
+#' @param valueL list of valueBox  values
+#' @param colorL list of valueBox colors
+#' @param iconL list of valueBox icons. Do not enclose in 'icon()'
+#'
 #' @export
 #' @keywords internal
-    
-mod_valueBoxRow_server <- function(input, output, session){
-  ns <- session$ns
-  
-  output$rate <- renderValueBox({
 
-    valueBox(
-      value = 100,
-      subtitle = "Downloads per sec (last 5 min)",
-      icon = icon("area-chart")
-    )
+mod_valueBoxRow_server <- function(input, 
+                                   output,
+                                   session, 
+                                   outputL, 
+                                   valueL,
+                                   colorL = rep("aqua", length(valueL)),
+                                   iconL = rep("table",length(valueL))
+                                   ){
+  ns <- session$ns
+
+
+
+
+  purrr::pmap(list(outputL, valueL, colorL, iconL), function(outputL, valueL, colorL, iconL) {
+    output[[outputL]] <- renderValueBox({
+      valueBox(
+        value = valueL,
+        subtitle = outputL,
+        color = colorL,
+        icon = icon(iconL)
+      )
+    })
   })
-  
-  output$count <- renderValueBox({
-    valueBox(
-      value = 123,
-      subtitle = "Total downloads",
-      icon = icon("download")
-    )
-  })
-  
-  output$users <- renderValueBox({
-    valueBox(
-      190,
-      "Unique users",
-      icon = icon("users")
-    )
-  })
-  
 }
-    
+
+
 ## To be copied in the UI
 # mod_my_first_module_ui("my_first_module_ui_1")
-    
+
 ## To be copied in the server
 # callModule(mod_my_first_module_server, "my_first_module_ui_1")
- 

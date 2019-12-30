@@ -10,6 +10,6 @@ valueBoxRow(outputId)
 \item{outputId}{list of outputId}
 }
 \description{
-creates a row of valueBox with a single value
+creates a row of valueBoxes
 }
 \keyword{internal}

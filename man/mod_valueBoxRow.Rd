@@ -7,18 +7,32 @@
 \usage{
 mod_valueBoxRow_ui(id, outputL)
 
-mod_valueBoxRow_server(input, output, session)
+mod_valueBoxRow_server(
+  input,
+  output,
+  session,
+  outputL,
+  valueL,
+  colorL = rep("aqua", length(valueL)),
+  iconL = rep("table", length(valueL))
+)
 }
 \arguments{
 \item{id}{shiny id}
 
-\item{outputL}{list of quoted outputIds}
+\item{outputL}{list of quoted outputIds (do not include `output`)}
 
 \item{input}{internal}
 
 \item{output}{internal}
 
 \item{session}{internal}
+
+\item{valueL}{list of valueBox colorL}
+
+\item{iconL}{list of valueBox iconL}
+
+\item{subtitleL}{list of valueBox subtitles}
 }
 \description{
 A shiny Module.
