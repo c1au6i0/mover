@@ -42,7 +42,7 @@ mod_valueBoxRow_ui <- function(id, outputL) {
 
 # Module Server
 
-#' @rdname mod_valueBoxRow
+#' @rdname valueBoxRow
 #' @param valueL list of valueBox  values
 #' @param colorL list of valueBox colors
 #' @param iconL list of valueBox icons. Do not enclose in 'icon()'
