@@ -9,4 +9,4 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
-I am just messing around with {golem}
+Just messing around with {golem} and {shiny}.

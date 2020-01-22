@@ -2,20 +2,9 @@
 % Please edit documentation in R/mod_valueBoxRow.R
 \name{mod_valueBoxRow_ui}
 \alias{mod_valueBoxRow_ui}
-\alias{mod_valueBoxRow_server}
 \title{mod_valueBoxRow_ui and mod_valueBoxRow_server}
 \usage{
 mod_valueBoxRow_ui(id, outputL)
-
-mod_valueBoxRow_server(
-  input,
-  output,
-  session,
-  outputL,
-  valueL,
-  colorL = rep("aqua", length(valueL)),
-  iconL = rep("table", length(valueL))
-)
 }
 \arguments{
 \item{id}{shiny id}
@@ -27,12 +16,6 @@ mod_valueBoxRow_server(
 \item{output}{internal}
 
 \item{session}{internal}
-
-\item{valueL}{list of valueBox colorL}
-
-\item{iconL}{list of valueBox iconL}
-
-\item{subtitleL}{list of valueBox subtitles}
 }
 \description{
 A shiny Module.

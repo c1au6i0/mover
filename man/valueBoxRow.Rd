@@ -2,12 +2,29 @@
 % Please edit documentation in R/mod_valueBoxRow.R
 \name{valueBoxRow}
 \alias{valueBoxRow}
+\alias{mod_valueBoxRow_server}
 \title{valueBoxRow}
 \usage{
 valueBoxRow(outputId)
+
+mod_valueBoxRow_server(
+  input,
+  output,
+  session,
+  outputL,
+  valueL,
+  colorL = rep("aqua", length(valueL)),
+  iconL = rep("table", length(valueL))
+)
 }
 \arguments{
 \item{outputId}{list of outputId}
+
+\item{valueL}{list of valueBox  values}
+
+\item{colorL}{list of valueBox colors}
+
+\item{iconL}{list of valueBox icons. Do not enclose in 'icon()'}
 }
 \description{
 creates a row of valueBoxes

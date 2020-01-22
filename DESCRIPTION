@@ -9,14 +9,16 @@ LazyData: true
 Imports: 
     shiny,
     golem,
-    processx,
-    attempt,
-    DT,
     glue,
     htmltools,
     shinydashboard,
     purrr,
-    rvest
-RoxygenNote: 7.0.0
+    rvest,
+    jsonlite,
+    xml2,
+    stringr,
+    thinkr,
+    pkgload
+RoxygenNote: 7.0.2
 Suggests: 
     testthat

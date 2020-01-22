@@ -1,5 +1,7 @@
 #' Run the Shiny Application
 #'
+#'Function to run application
+#'
 #' @export
 #' @importFrom shiny shinyApp
 #' @importFrom golem with_golem_options
@@ -9,4 +11,5 @@ run_app <- function(...) {
     golem_opts = list(...)
   )
 }
+
 
